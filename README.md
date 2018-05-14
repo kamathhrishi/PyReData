@@ -1,6 +1,6 @@
 <h1>PyReData</h1>
 
-PyReData is a lightweight Python module which allows Python users to share their analysis and visualizations done using Python as HTML web pages. The module currently provides support for pandas and matplotlib. The module is currently under development.
+PyReData is a Open Source Python module which allows Python users to share their analysis and visualizations done using Python as HTML web pages. The module currently provides support for pandas and matplotlib. The module is currently under development.
 
 <h2>Demo Rports</h2>
 
