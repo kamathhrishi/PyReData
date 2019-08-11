@@ -1,14 +1,16 @@
 from main import PyReData
 import pandas as pd
 
-lol=PyReData()
+lol = PyReData()
 
-page=lol.page("BED")
+page = lol.page("LOL")
 
-data={'a':[1,2,3,4],'b':[1,2,3,4]}
+data = {"a": [1, 2, 3, 4, 5], "b": [2, 4, 6, 8, 10], "c": [3, 6, 9, 12, 15]}
 
-pd=pd.DataFrame(data)
+pd = pd.DataFrame(data)
 
-page.addtable(pd)
+widgets = lol.widgets()
+
+page.render(widgets.table(data), "random")
 
 page.compile()

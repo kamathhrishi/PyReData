@@ -1,11 +1,11 @@
-
 from ops import Item
 from stack import Stack
-from widgets import Widgets 
+from widgets import Widgets
 from page import Page
 
+
 class PyReData:
-    
+
     """
        
        The main class to be used to interact with the componenets of PyReData. 
@@ -16,11 +16,9 @@ class PyReData:
        users could use for developing their web report.
             
     """
-    
+
     def __init__(self):
-        
-        
-        self.page=Page
-        self.ops=Item
-        self.widgets=Widgets
-        
+
+        self.page = Page
+        self.ops = Item
+        self.widgets = Widgets
