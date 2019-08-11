@@ -23,8 +23,8 @@ class Stack:
 
         line = self.write(component)
         self.code += line
-
         print(self.code)
+        self.write_stack()
 
     def write(self, component):
 
@@ -58,7 +58,8 @@ class Stack:
         return line
 
     def write_stack(self):
-
+        
+        print("Writing stack")
         file = open(self.name + "." + self.type, "w")
         file.write(self.code)
         file.close()

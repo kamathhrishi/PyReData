@@ -21,12 +21,13 @@ class Page:
         self.template = []
         self.widgets = Widgets()
 
-        html = Item("html")
-        head = Item("head")
+        self.html = Item("html")
+        self.head = Item("head")
+        self.body = Item("body")
         title = Item("title", content="Hello Wo")
-        html.add(head)
-        head.add(title)
-        self.stack.writestack(html)
+        self.html.add(self.head)
+        self.html.add(self.body)
+        self.head.add(title)
 
     def load_template(self):
 
@@ -59,11 +60,11 @@ class Page:
             name[str]: Name given to the element
             
         """
-
-        self.stack.write(element)
+        print("Writing")
+        self.body.add(element)
 
     def compile(self):
 
         """Writes the stack as a HTML file"""
 
-        self.stack.write_stack()
+        self.stack.writestack(self.html)
