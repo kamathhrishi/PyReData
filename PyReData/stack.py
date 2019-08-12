@@ -54,11 +54,10 @@ class Stack:
         line += "\n"
         line += "</" + component.obj + ">"
 
-
         return line
 
     def write_stack(self):
-        
+
         print("Writing stack")
         file = open(self.name + "." + self.type, "w")
         file.write(self.code)
