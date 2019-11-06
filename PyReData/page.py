@@ -7,23 +7,29 @@ class Page:
 
     """The main class to be used to interact the componenets of PyReData"
     
-        Args:
+       Args:
             
             name[str]: Name of the page
             template:  Template of the given webpage
             
     """
 
-    def __init__(self, name, template=""):
+    def __init__(self, name, template="", style=""):
 
         self.name = name
         self.stack = Stack("html", name=self.name)
         self.template = []
-        self.widgets = Widgets()
+        self.stylesheets = []
 
+        attributes = []
+        if style:
+
+            attributes = [["style", style]]
+
+        self.widgets = Widgets()
         self.html = Item("html")
         self.head = Item("head")
-        self.body = Item("body")
+        self.body = Item("body", attributes=attributes)
         title = Item("title", content="Hello Wo")
         self.html.add(self.head)
         self.html.add(self.body)
@@ -44,6 +50,10 @@ class Page:
     def head(self):
 
         """Initializes head of given webpage"""
+
+        for style in self.stylesheets:
+
+            self.head.add(Item("link"))
 
     def addtable(self, data):
 

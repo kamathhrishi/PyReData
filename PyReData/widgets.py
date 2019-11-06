@@ -38,8 +38,28 @@ class Widgets:
 
             for column in columns:
 
-                row.add(Item("td", content=str(data[column][index])))
+                row.add(
+                    Item(
+                        "td",
+                        attributes=data_attributes,
+                        content=str(data[column][index]),
+                    )
+                )
 
             Table.add(row)
 
         return Table
+
+    def image(self, path, name="", attributes=None, id=None, Class=None):
+
+        attributes = []
+        attributes.append(["src", path])
+        image = Item("img", attributes=attributes, id=id, Class=Class)
+
+        return image
+
+    def container(self, attributes=None, id=None, Class=None, header=None):
+
+        container = Item("div", attributes=attributes, id=id, Class=Class)
+
+        return container
