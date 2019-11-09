@@ -10,6 +10,17 @@ To Do:
 ⋅⋅*Seaborn Support
 
 <h1>Installation</h1>
+
+PyReData supports Pandas , Matplotlib and Seaborn.
+
 Run the following command in the root directory.
+
+Clone the repository
+
+''' git clone https://github.com/kamathhrishi/PyReData.git '''
+
+Change directory
+
+''' cd PyReData'''
 
 ``` python setup.py install```
