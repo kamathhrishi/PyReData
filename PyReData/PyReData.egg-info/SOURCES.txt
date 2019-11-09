@@ -1,0 +1,11 @@
+setup.py
+PyReData/__init__.py
+PyReData/main.py
+PyReData/ops.py
+PyReData/page.py
+PyReData/stack.py
+PyReData/widgets.py
+PyReData.egg-info/PKG-INFO
+PyReData.egg-info/SOURCES.txt
+PyReData.egg-info/dependency_links.txt
+PyReData.egg-info/top_level.txt

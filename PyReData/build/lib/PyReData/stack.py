@@ -1,5 +1,4 @@
-import PyReData.ops
-
+import PyReData.ops 
 
 class Stack:
     """Class used to maintain the stack which stores operations and data.
