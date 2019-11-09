@@ -3,6 +3,7 @@ import pandas as pd
 from PyReData.main import PyReData
 from PyReData.ops import Item
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 lol = PyReData()
 
@@ -55,10 +56,8 @@ container = widgets.container(
 
 container.add(jumbotron)
 
-fig = plt.figure()
-plt.plot([1, 2, 3, 4, 5], [1, 3, 4, 5, 4])
-plt.show()
-plt.close()
+ax = sns.distplot(Data["age"])
+fig = ax.get_figure()
 
 container.add(widgets.plot(lol, fig))
 
@@ -70,6 +69,25 @@ plt.close()
 
 container.add(widgets.plot(lol, fig))
 
+container_fluid = widgets.container(Class=["container-fluid"])
+
+image = widgets.image(
+    "Image.jpeg",
+    id=["LOL"],
+    Class=["LOL"],
+    attributes=[["height", "160"], ["width", "160"]],
+)
+
+rows = widgets.row(cols=4)
+rows.child[0].child = [image]
+rows.child[1].child = [image]
+rows.child[2].child = [image]
+rows.child[3].child = [image]
+
+
+container_fluid.add(rows)
+
+container.add(container_fluid)
 
 container.add(
     widgets.table(

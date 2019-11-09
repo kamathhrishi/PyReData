@@ -40,15 +40,15 @@ class Widgets:
 
             columns.append(headers)
 
-        head = Item("thead")
+        thead = Item("thead")
         header = Item("tr", attributes=row_attributes)
 
         for head in columns:
 
             header.add(Item("th", attributes=header_attributes, content=str(head)))
 
-        head.add(header)
-        Table.add(head)
+        thead.add(header)
+        Table.add(thead)
 
         for index in data.index:
             row = Item("tr", attributes=row_attributes, Class=Class)
@@ -90,6 +90,22 @@ class Widgets:
     def container(self, attributes=None, id=None, Class=None, header=None):
 
         container = Item("div", attributes=attributes, id=id, Class=Class)
+
+        return container
+
+    def row(self, cols=1, attributes=None, id=None, Class="row", header=None):
+
+        container = Item("div", attributes=attributes, id=id, Class=["row"])
+
+        for i in range(0, cols):
+
+            container.add(self.column())
+
+        return container
+
+    def column(self, attributes=None, id=None, Class="col", header=None):
+
+        container = Item("div", attributes=attributes, id=id, Class=["col"])
 
         return container
 

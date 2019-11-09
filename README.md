@@ -8,6 +8,11 @@ To Do:
 ⋅⋅*Templating
 ⋅⋅*Complete PIMA Diabetes Example
 ⋅⋅*Seaborn Support
+..*Generalize handling multiple classnames , Item children , attributes and ID's
+..*Write Unit tests
+..*Handle type errors
+..*Convert ints to strings in attributes
+..*Rename Item to Node and allow to visualize complete tree for debugging
 
 <h1>Installation</h1>
 
