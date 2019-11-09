@@ -1,6 +1,6 @@
 import pandas as pd
-from main import PyReData
-from ops import Item
+from PyReData import main
+from PyReData import ops
 
 lol = PyReData()
 
