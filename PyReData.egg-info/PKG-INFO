@@ -1,13 +1,13 @@
 Metadata-Version: 1.1
 Name: PyReData
 Version: 0.1
-Summary: A Library for Private, Secure Deep Learning
+Summary: Allows to share analysis and visualizations done using Python as HTML web pages. 
 Home-page: https://github.com/OpenMined/PySyft
 Author: Hrishikesh Kamath
 Author-email: kamathhrishi@gmail.com
 License: Apache-2.0
 Description: UNKNOWN
-Keywords: deep learning artificial intelligence privacy secure multi-party computation federated learning differential privacy
+Keywords: Data visualizations Data analysis
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: OS Independent

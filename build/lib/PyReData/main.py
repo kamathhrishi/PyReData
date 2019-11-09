@@ -1,9 +1,8 @@
-
-
 from PyReData.ops import Item
 from PyReData.stack import Stack
 from PyReData.widgets import Widgets
 from PyReData.page import Page
+
 
 class PyReData:
     """
