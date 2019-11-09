@@ -23,4 +23,6 @@ Change directory
 
 ```cd PyReData```
 
+Run Installation script
+
 ``` python setup.py install```
