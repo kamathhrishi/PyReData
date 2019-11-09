@@ -40,13 +40,15 @@ class Widgets:
 
             columns.append(headers)
 
+        head = Item("thead")
         header = Item("tr", attributes=row_attributes)
 
         for head in columns:
 
             header.add(Item("th", attributes=header_attributes, content=str(head)))
 
-        Table.add(header)
+        head.add(header)
+        Table.add(head)
 
         for index in data.index:
             row = Item("tr", attributes=row_attributes, Class=Class)

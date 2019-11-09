@@ -79,7 +79,7 @@ container.add(
             ["style", "border:1px solid black;border-collapse: collapse;"]
         ],
         centerize=True,
-        Class=["LOLK"],
+        Class=["table table-bordered"],
         id=["YAAS"],
     )
 )

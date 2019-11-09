@@ -8,3 +8,8 @@ To Do:
 ⋅⋅*Templating
 ⋅⋅*Complete PIMA Diabetes Example
 ⋅⋅*Seaborn Support
+
+<h1>Installation</h1>
+Run the following command in the root directory.
+
+``` python setup.py install```
