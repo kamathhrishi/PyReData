@@ -17,10 +17,10 @@ Run the following command in the root directory.
 
 Clone the repository
 
-''' git clone https://github.com/kamathhrishi/PyReData.git '''
+```git clone https://github.com/kamathhrishi/PyReData.git```
 
 Change directory
 
-''' cd PyReData'''
+```cd PyReData```
 
 ``` python setup.py install```
