@@ -23,7 +23,14 @@ container.add(
     Item("h1", content="Hello World", attributes=[["style", "text-align:center"]])
 )
 container.add(
-    widgets.table(data,attributes=[["style","border:1px solid black;"]],data_attributes=[["style", "border:1px solid black;border-collapse: collapse;"]])
+    widgets.table(
+        data,
+        attributes=[["style", "border:1px solid black;width:50%"]],
+        data_attributes=[
+            ["style", "border:1px solid black;border-collapse: collapse;"]
+        ],
+        centerize=True,
+    )
 )
 container.add(image)
 page.render(container, "NAME")

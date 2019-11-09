@@ -22,7 +22,6 @@ class Stack:
 
         line = self.write(component)
         self.code += line
-        print(self.code)
         self.write_stack()
 
     def write_css(self, component, attributes, id=False, Class=False):
@@ -56,36 +55,53 @@ class Stack:
         line = ""
         line += "\n"
 
+        if component.centerize:
+
+            line += "<center>"
+
         line += "<" + component.obj
+        line += " "
+
+        if component.id:
+
+            line += " "
+            line += "id="
+            line += '"'
+
+            for id_no in component.id:
+
+                line += id_no
+                line += " "
+
+            line += '"'
+
+        line += " "
+
+        if component.Class:
+
+            line += " "
+            line += "class="
+            line += '"'
+
+            for id_no in component.Class:
+
+                line += id_no
+                line += " "
+
+            line += '"'
+
         line += " "
 
         if component.attributes:
 
             for attr in component.attributes:
 
-                print(attr)
-
                 line += attr[0]
                 line += "="
-                line += "'"
+                line += '"'
                 line += attr[1]
-                line += "'"
-
-        if component.id:
-
-            line += " "
-            line += "id="
-            line += "'"
-            line += component.id
-            line += "'"
-
-        if component.Class:
-
-            line += " "
-            line += "class="
-            line += "'"
-            line += component.Class
-            line += "'"
+                line += '"'
+                line += " "
 
         line += ">"
         line += "\n"
@@ -102,6 +118,10 @@ class Stack:
 
         line += "\n"
         line += "</" + component.obj + ">"
+
+        if component.centerize:
+
+            line += "</center>"
 
         return line
 

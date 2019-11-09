@@ -14,12 +14,13 @@ class Page:
             
     """
 
-    def __init__(self, name, template="", style=""):
+    def __init__(self, name, template="", style="", stylesheets=[], scripts=[]):
 
         self.name = name
         self.stack = Stack("html", name=self.name)
         self.template = []
-        self.stylesheets = []
+        self.stylesheets = stylesheets
+        self.scripts = scripts
 
         attributes = []
         if style:
@@ -34,6 +35,7 @@ class Page:
         self.html.add(self.head)
         self.html.add(self.body)
         self.head.add(title)
+        self.init_head()
 
     def load_template(self):
 
@@ -47,13 +49,18 @@ class Page:
 
         body_stack.append()
 
-    def head(self):
-
+    def init_head(self):
         """Initializes head of given webpage"""
 
         for style in self.stylesheets:
 
-            self.head.add(Item("link"))
+            self.head.add(
+                Item("link", attributes=[["rel", "stylesheet"], ["href", style]])
+            )
+
+        for link in self.scripts:
+
+            self.head.add(Item("script", attributes=[["src", link]]))
 
     def addtable(self, data):
 
