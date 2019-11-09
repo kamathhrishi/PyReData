@@ -42,30 +42,30 @@ class CustomizedDist(Distribution):
         that respects respects allow_hosts and index_url. """
         from setuptools.command.easy_install import easy_install
 
-        dist = Distribution({'script_args': ['easy_install']})
+        dist = Distribution({"script_args": ["easy_install"]})
         dist.parse_config_files()
-        opts = dist.get_option_dict('easy_install')
+        opts = dist.get_option_dict("easy_install")
         keep = (
-            'find_links',
-            'site_dirs',
-            'index_url',
-            'optimize',
-            'site_dirs',
-            'allow_hosts',
+            "find_links",
+            "site_dirs",
+            "index_url",
+            "optimize",
+            "site_dirs",
+            "allow_hosts",
         )
         for key in list(opts):
             if key not in keep:
                 del opts[key]  # don't use any other settings
         if self.dependency_links:
             links = self.dependency_links[:]
-            if 'find_links' in opts:
-                links = opts['find_links'][1].split() + links
-            opts['find_links'] = ('setup', links)
+            if "find_links" in opts:
+                links = opts["find_links"][1].split() + links
+            opts["find_links"] = ("setup", links)
         if self.allow_hosts:
-            opts['allow_hosts'] = ('test', self.allow_hosts)
+            opts["allow_hosts"] = ("test", self.allow_hosts)
         if self.index_url:
-            opts['index_url'] = ('test', self.index_url)
-        install_dir_func = getattr(self, 'get_egg_cache_dir', _os.getcwd)
+            opts["index_url"] = ("test", self.index_url)
+        install_dir_func = getattr(self, "get_egg_cache_dir", _os.getcwd)
         install_dir = install_dir_func()
         cmd = easy_install(
             dist,
@@ -92,20 +92,20 @@ class PyTest(orig.test):
     """
 
     user_options = [
-        ('extras', None, "Install (all) setuptools extras when running tests"),
+        ("extras", None, "Install (all) setuptools extras when running tests"),
         (
-            'index-url=',
+            "index-url=",
             None,
             "Specify an index url from which to retrieve " "dependencies",
         ),
         (
-            'allow-hosts=',
+            "allow-hosts=",
             None,
             "Whitelist of comma-separated hosts to allow "
             "when retrieving dependencies",
         ),
         (
-            'addopts=',
+            "addopts=",
             None,
             "Additional options to be passed verbatim to the " "pytest runner",
         ),
@@ -127,7 +127,7 @@ class PyTest(orig.test):
         instead of declaring the dependency in the package
         metadata, assert the requirement at run time.
         """
-        pkg_resources.require('setuptools>=27.3')
+        pkg_resources.require("setuptools>=27.3")
 
     def finalize_options(self):
         if self.addopts:
@@ -161,7 +161,7 @@ class PyTest(orig.test):
         extras_require = dist.extras_require or {}
 
         spec_extras = (
-            (spec.partition(':'), reqs) for spec, reqs in extras_require.items()
+            (spec.partition(":"), reqs) for spec, reqs in extras_require.items()
         )
         matching_extras = (
             reqs
@@ -181,9 +181,9 @@ class PyTest(orig.test):
             "please upgrade to setuptools 30.4 or later or pin to "
             "pytest-runner < 5."
         )
-        ver_str = pkg_resources.get_distribution('setuptools').version
+        ver_str = pkg_resources.get_distribution("setuptools").version
         ver = pkg_resources.parse_version(ver_str)
-        if ver < pkg_resources.parse_version('30.4'):
+        if ver < pkg_resources.parse_version("30.4"):
             _warnings.warn(msg)
 
     def run(self):
@@ -193,30 +193,30 @@ class PyTest(orig.test):
         """
         self._warn_old_setuptools()
         dist = CustomizedDist()
-        for attr in 'allow_hosts index_url'.split():
+        for attr in "allow_hosts index_url".split():
             setattr(dist, attr, getattr(self, attr))
         for attr in (
-            'dependency_links install_requires ' 'tests_require extras_require '
+            "dependency_links install_requires " "tests_require extras_require "
         ).split():
             setattr(dist, attr, getattr(self.distribution, attr))
         installed_dists = self.install_dists(dist)
         if self.dry_run:
-            self.announce('skipping tests (dry run)')
+            self.announce("skipping tests (dry run)")
             return
-        paths = map(_operator.attrgetter('location'), installed_dists)
+        paths = map(_operator.attrgetter("location"), installed_dists)
         with self.paths_on_pythonpath(paths):
             with self.project_on_sys_path():
                 return self.run_tests()
 
     @property
     def _argv(self):
-        return ['pytest'] + self.addopts
+        return ["pytest"] + self.addopts
 
     def run_tests(self):
         """
         Invoke pytest, replacing argv. Return result code.
         """
         with _save_argv(_sys.argv[:1] + self.addopts):
-            result_code = __import__('pytest').main()
+            result_code = __import__("pytest").main()
             if result_code:
                 raise SystemExit(result_code)

@@ -1,4 +1,5 @@
 from PyReData.ops import Item
+import os
 
 
 class Widgets:
@@ -62,6 +63,19 @@ class Widgets:
             Table.add(row)
 
         return Table
+
+    def plot(self, instance, plt):
+
+        if not os.path.exists("plots"):
+            os.makedirs("plots")
+
+        path = "plots/" + str(instance.images) + ".png"
+        plt.savefig(path)
+        instance.images += 1
+
+        image = self.image(path)
+
+        return image
 
     def image(self, path, name="", attributes=None, id=None, Class=None):
 

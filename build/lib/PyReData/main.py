@@ -19,3 +19,4 @@ class PyReData:
         self.page = Page
         self.ops = Item
         self.widgets = Widgets
+        self.images = 0

@@ -2,6 +2,7 @@ import PyReData
 import pandas as pd
 from PyReData.main import PyReData
 from PyReData.ops import Item
+import matplotlib.pyplot as plt
 
 lol = PyReData()
 
@@ -53,6 +54,22 @@ container = widgets.container(
 )
 
 container.add(jumbotron)
+
+fig = plt.figure()
+plt.plot([1, 2, 3, 4, 5], [1, 3, 4, 5, 4])
+plt.show()
+plt.close()
+
+container.add(widgets.plot(lol, fig))
+
+fig = plt.figure()
+plt.plot([1, 4, 3, 3, 5], [1, 3, 4, 5, 4])
+plt.show()
+plt.close()
+
+
+container.add(widgets.plot(lol, fig))
+
 
 container.add(
     widgets.table(

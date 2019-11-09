@@ -1,15 +1,15 @@
-from main import PyReData
+import PyReData
+import pandas as pd
+from PyReData.main import PyReData
+from PyReData.ops import Item
+import matplotlib.pyplot as plt
 
 import pandas as pd
-from ops import Item
 
 lol = PyReData()
 
 page = lol.page("LOL", style="background:rgb(236, 236, 221)")
 
-data = {"a": [1, 2, 3, 4, 5], "b": [2, 4, 6, 8, 10], "c": [3, 6, 9, 12, 15]}
-
-pd = pd.DataFrame(data)
 
 widgets = lol.widgets()
 
@@ -22,16 +22,7 @@ image = widgets.image("Doggy.png", id="LOL", Class="LOL")
 container.add(
     Item("h1", content="Hello World", attributes=[["style", "text-align:center"]])
 )
-container.add(
-    widgets.table(
-        data,
-        attributes=[["style", "border:1px solid black;width:50%"]],
-        data_attributes=[
-            ["style", "border:1px solid black;border-collapse: collapse;"]
-        ],
-        centerize=True,
-    )
-)
+
 container.add(image)
 page.render(container, "NAME")
 page.compile()
