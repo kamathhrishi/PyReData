@@ -96,8 +96,12 @@ class Widgets:
 
         return container
 
-    def image_gallery(self):
+    def image_gallery(self,img,nrows=3,ncols=3):
 
+        pass
+    
+    def plot_gallery(self):
+        
         pass
 
     def row(self, cols=1, attributes=None, id=None, Class="row", header=None):
