@@ -81,7 +81,10 @@ class Widgets:
 
     def image(self, path, name="", attributes=None, id=None, Class=None):
 
-        attributes = []
+        if attributes is None:
+
+            attributes = []
+
         attributes.append(["src", path])
         image = Item("img", attributes=attributes, id=id, Class=Class)
 
@@ -92,6 +95,10 @@ class Widgets:
         container = Item("div", attributes=attributes, id=id, Class=Class)
 
         return container
+
+    def image_gallery(self):
+
+        pass
 
     def row(self, cols=1, attributes=None, id=None, Class="row", header=None):
 

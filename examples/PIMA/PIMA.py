@@ -75,7 +75,7 @@ image = widgets.image(
     "Image.jpeg",
     id=["LOL"],
     Class=["LOL"],
-    attributes=[["height", "160"], ["width", "160"]],
+    attributes=[["height", "200"], ["width", "300"]],
 )
 
 rows = widgets.row(cols=4)
@@ -88,6 +88,8 @@ rows.child[3].child = [image]
 container_fluid.add(rows)
 
 container.add(container_fluid)
+
+container.add(Item("br"))
 
 container.add(
     widgets.table(

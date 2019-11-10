@@ -14,6 +14,7 @@
 * Handle type errors
 * Convert ints to strings in attributes
 * Rename Item to Node and allow to visualize complete tree for debugging
+* Documentation
 
 <h1>Installation</h1>
 
