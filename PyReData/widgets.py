@@ -96,12 +96,37 @@ class Widgets:
 
         return container
 
-    def image_gallery(self,img,nrows=3,ncols=3):
+    def image_gallery(self, instance, img, nrows=3, ncols=3, attributes=[]):
 
-        pass
-    
+        widgets = instance.widgets()
+        container_fluid = widgets.container(
+            Class=["container-fluid"], attributes=attributes
+        )
+
+        for n_row in range(0, nrows):
+
+            row = widgets.row(cols=ncols)
+            container_fluid.add(row)
+
+        img_index = 0
+
+        for row in range(0, nrows):
+
+            for col in range(0, ncols):
+
+                if img_index < len(img):
+
+                    container_fluid.child[row].child[col] = img[img_index]
+                    img_index += 1
+
+        if len(img) > (nrows * ncols):
+
+            print("Number of images more than rows and columns")
+
+        return container_fluid
+
     def plot_gallery(self):
-        
+
         pass
 
     def row(self, cols=1, attributes=None, id=None, Class="row", header=None):

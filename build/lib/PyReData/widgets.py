@@ -80,11 +80,11 @@ class Widgets:
         return image
 
     def image(self, path, name="", attributes=None, id=None, Class=None):
-        
-        if(attributes is None):
-            
-            attributes=[]
-            
+
+        if attributes is None:
+
+            attributes = []
+
         attributes.append(["src", path])
         image = Item("img", attributes=attributes, id=id, Class=Class)
 
@@ -95,6 +95,39 @@ class Widgets:
         container = Item("div", attributes=attributes, id=id, Class=Class)
 
         return container
+
+    def image_gallery(self, instance, img, nrows=3, ncols=3, attributes=[]):
+
+        widgets = instance.widgets()
+        container_fluid = widgets.container(
+            Class=["container-fluid"], attributes=attributes
+        )
+
+        for n_row in range(0, nrows):
+
+            row = widgets.row(cols=ncols)
+            container_fluid.add(row)
+
+        img_index = 0
+
+        for row in range(0, nrows):
+
+            for col in range(0, ncols):
+
+                if img_index < len(img):
+
+                    container_fluid.child[row].child[col] = img[img_index]
+                    img_index += 1
+
+        if len(img) > (nrows * ncols):
+
+            print("Number of images more than rows and columns")
+
+        return container_fluid
+
+    def plot_gallery(self):
+
+        pass
 
     def row(self, cols=1, attributes=None, id=None, Class="row", header=None):
 

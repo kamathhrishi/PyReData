@@ -75,19 +75,30 @@ image = widgets.image(
     "Image.jpeg",
     id=["LOL"],
     Class=["LOL"],
-    attributes=[["height", "200"], ["width", "300"]],
+    attributes=[["height", "200"], ["width", "300"], ["style", "margin:5px"]],
 )
 
-rows = widgets.row(cols=4)
-rows.child[0].child = [image]
-rows.child[1].child = [image]
-rows.child[2].child = [image]
-rows.child[3].child = [image]
 
-
-container_fluid.add(rows)
-
-container.add(container_fluid)
+container.add(
+    widgets.image_gallery(
+        lol,
+        [
+            image,
+            image,
+            image,
+            image,
+            image,
+            image,
+            image,
+            image,
+            image,
+            image,
+            image,
+            image,
+        ],
+        attributes=[["style", "margin-left:270px"]],
+    )
+)
 
 container.add(Item("br"))
 
