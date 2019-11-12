@@ -66,39 +66,11 @@ plt.plot([1, 4, 3, 3, 5], [1, 3, 4, 5, 4])
 plt.show()
 plt.close()
 
-
 container.add(widgets.plot(lol, fig))
 
 container_fluid = widgets.container(Class=["container-fluid"])
 
-image = widgets.image(
-    "Image.jpeg",
-    id=["LOL"],
-    Class=["LOL"],
-    attributes=[["height", "200"], ["width", "300"], ["style", "margin:5px"]],
-)
-
-
-container.add(
-    widgets.image_gallery(
-        lol,
-        [
-            image,
-            image,
-            image,
-            image,
-            image,
-            image,
-            image,
-            image,
-            image,
-            image,
-            image,
-            image,
-        ],
-        attributes=[["style", "margin-left:270px"]],
-    )
-)
+container.add(widgets.attribute_plot(lol, Data))
 
 container.add(Item("br"))
 
@@ -114,6 +86,10 @@ container.add(
         id=["YAAS"],
     )
 )
+
+container.add(Item("br"))
+container.add(Item("br"))
+container.add(Item("br"))
 
 page.render(container, "NAME")
 page.compile()

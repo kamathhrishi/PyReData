@@ -1,4 +1,5 @@
 from PyReData.ops import Item
+import seaborn as sns
 import os
 
 
@@ -73,6 +74,7 @@ class Widgets:
 
         path = "plots/" + str(instance.images) + ".png"
         plt.savefig(path)
+        plt.show()
         instance.images += 1
 
         image = self.image(path)
@@ -125,9 +127,39 @@ class Widgets:
 
         return container_fluid
 
-    def plot_gallery(self):
+    def plot_gallery(self, instance, img, nrows=3, ncols=3, attributes=[]):
 
-        pass
+        widgets = instance.widgets()
+        container_fluid = widgets.container(
+            Class=["container-fluid"], attributes=attributes
+        )
+
+        for n_row in range(0, nrows):
+
+            row = widgets.row(cols=ncols)
+            container_fluid.add(row)
+
+        plt_index = 0
+
+        for row in range(0, nrows):
+
+            for col in range(0, ncols):
+
+                if plt_index < len(img):
+
+                    container_fluid.child[row].child[col] = self.plot(
+                        instance, img[plt_index]
+                    )
+
+                else:
+
+                    print("Number of plots more than rows and columns")
+                    row = nrows
+                    col = ncols
+
+                plt_index += 1
+
+        return container_fluid
 
     def row(self, cols=1, attributes=None, id=None, Class="row", header=None):
 
@@ -138,6 +170,18 @@ class Widgets:
             container.add(self.column())
 
         return container
+
+    def attribute_plot(self, instance, data):
+
+        plots = []
+
+        for key in data.keys():
+
+            ax = sns.distplot(data[key])
+            fig = ax.get_figure()
+            plots.append(fig)
+
+        return self.plot_gallery(instance, plots)
 
     def column(self, attributes=None, id=None, Class="col", header=None):
 

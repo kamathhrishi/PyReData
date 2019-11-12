@@ -24,32 +24,6 @@ class Stack:
         self.code += line
         self.write_stack()
 
-    def write_css(self, component, attributes, id=False, Class=False):
-
-        line = ""
-
-        if id:
-
-            line += "#"
-
-        if Class:
-
-            line += "."
-
-        line += component
-        line += "{"
-
-        for attr in attributes:
-
-            line += attr[0]
-            line += ":"
-            line += attr[1]
-            line += " "
-
-        line += "}"
-
-        return line
-
     def write(self, component):
 
         line = ""
