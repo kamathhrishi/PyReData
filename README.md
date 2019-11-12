@@ -5,7 +5,6 @@
 
 * Improved API for tables (various bootstrap classes)
 * Easy API to go from Dataframes to tables
-* Gallery for viewing plots
 * Templating
 * Complete PIMA Diabetes Example
 * Seaborn Support
