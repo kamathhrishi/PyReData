@@ -3,11 +3,12 @@
 
 <h3>To Do:</h3>
 
+Complete PIMA Diabetes Example showing an
+
 * Improved API for tables (various bootstrap classes)
 * Easy API to go from Dataframes to tables
 * Templating
-* Complete PIMA Diabetes Example
-* Seaborn Support
+* Generalized Seaborn and Matplotlib support
 * Generalize handling multiple classnames , Item children , attributes and ID's
 * Write Unit tests
 * Handle type errors
