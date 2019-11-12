@@ -1,5 +1,6 @@
 from PyReData.ops import Item
 import seaborn as sns
+import matplotlib.pyplot as plt
 import os
 
 
@@ -67,14 +68,14 @@ class Widgets:
 
         return Table
 
-    def plot(self, instance, plt):
+    def plot(self, instance, plot):
 
         if not os.path.exists("plots"):
             os.makedirs("plots")
 
         path = "plots/" + str(instance.images) + ".png"
-        plt.savefig(path)
-        plt.show()
+        plot.savefig(path)
+        plot.show()
         instance.images += 1
 
         image = self.image(path)
@@ -177,11 +178,13 @@ class Widgets:
 
         for key in data.keys():
 
-            ax = sns.distplot(data[key])
-            fig = ax.get_figure()
-            plots.append(fig)
+            if key != "index":
 
-        return self.plot_gallery(instance, plots)
+                ax = sns.distplot(data[key], kde=False, rug=True)
+                fig = ax.get_figure()
+                plots.append(self.plot(instance, fig))
+
+        return self.image_gallery(instance, plots)
 
     def column(self, attributes=None, id=None, Class="col", header=None):
 
