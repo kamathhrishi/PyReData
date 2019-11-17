@@ -9,7 +9,6 @@ Complete PIMA Diabetes Example showing an
 * Easy API to go from Dataframes to tables
 * Templating
 * Generalized Seaborn and Matplotlib support
-* Generalize handling multiple classnames , Item children , attributes and ID's
 * Write Unit tests
 * Handle type errors
 * Rename Item to Node and allow to visualize complete tree for debugging

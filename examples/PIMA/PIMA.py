@@ -41,7 +41,7 @@ page = lol.page(
 )
 
 jumbotron = widgets.container(
-    Class=["jumbotron", "bg-dark"], id=["YAAS"], attributes=[["style", "color:white"]]
+    Class=["jumbotron", "bg-dark"], id=["YAAS"], attributes=["style", "color:white"]
 )
 jumbotron.add(Item("p", content="HELLO WORLD"))
 
@@ -49,9 +49,7 @@ Data = Data.reset_index()
 pd = Data.head(n=5)
 
 container = widgets.container(
-    attributes=[
-        ["style", "border:1px solid black;margin-left:100px;margin-right:100px;"]
-    ]
+    attributes=["style", "border:1px solid black;margin-left:100px;margin-right:100px;"]
 )
 
 container.add(jumbotron)
@@ -77,10 +75,8 @@ container.add(Item("br"))
 container.add(
     widgets.table(
         pd,
-        attributes=[["style", "border:1px solid black;width:65%"]],
-        data_attributes=[
-            ["style", "border:1px solid black;border-collapse: collapse;"]
-        ],
+        attributes=["style", "border:1px solid black;width:65%"],
+        data_attributes=["style", "border:1px solid black;border-collapse: collapse;"],
         centerize=True,
         Class=["table table-bordered"],
         id=["YAAS"],

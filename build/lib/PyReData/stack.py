@@ -66,7 +66,7 @@ class Stack:
 
         line += " "
 
-        if component.attributes:
+        if component.attributes and isinstance(component.attributes[0], list):
 
             for attr in component.attributes:
 
@@ -76,6 +76,15 @@ class Stack:
                 line += attr[1]
                 line += '"'
                 line += " "
+
+        elif component.attributes and isinstance(component.attributes[0], str):
+
+            line += component.attributes[0]
+            line += "="
+            line += '"'
+            line += component.attributes[1]
+            line += '"'
+            line += " "
 
         line += ">"
         line += "\n"
