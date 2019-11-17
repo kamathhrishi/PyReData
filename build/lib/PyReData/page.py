@@ -1,4 +1,4 @@
-from PyReData.ops import Item
+from PyReData.ops import Node
 from PyReData.stack import Stack
 from PyReData.widgets import Widgets
 
@@ -28,10 +28,10 @@ class Page:
             attributes = [["style", style]]
 
         self.widgets = Widgets()
-        self.html = Item("html")
-        self.head = Item("head")
-        self.body = Item("body", attributes=attributes)
-        title = Item("title", content="Hello Wo")
+        self.html = Node("html")
+        self.head = Node("head")
+        self.body = Node("body", attributes=attributes)
+        title = Node("title", content="Hello Wo")
         self.html.add(self.head)
         self.html.add(self.body)
         self.head.add(title)
@@ -55,12 +55,12 @@ class Page:
         for style in self.stylesheets:
 
             self.head.add(
-                Item("link", attributes=[["rel", "stylesheet"], ["href", style]])
+                Node("link", attributes=[["rel", "stylesheet"], ["href", style]])
             )
 
         for link in self.scripts:
 
-            self.head.add(Item("script", attributes=[["src", link]]))
+            self.head.add(Node("script", attributes=[["src", link]]))
 
     def addtable(self, data):
 

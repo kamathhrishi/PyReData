@@ -1,7 +1,7 @@
 import PyReData
 import pandas as pd
 from PyReData.main import PyReData
-from PyReData.ops import Item
+from PyReData.ops import Node
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -43,7 +43,7 @@ page = lol.page(
 jumbotron = widgets.container(
     Class=["jumbotron", "bg-dark"], id=["YAAS"], attributes=["style", "color:white"]
 )
-jumbotron.add(Item("p", content="HELLO WORLD"))
+jumbotron.add(Node("p", content="HELLO WORLD"))
 
 Data = Data.reset_index()
 pd = Data.head(n=5)
@@ -70,7 +70,7 @@ container_fluid = widgets.container(Class=["container-fluid"])
 
 container.add(widgets.attribute_plot(lol, Data))
 
-container.add(Item("br"))
+container.add(Node("br"))
 
 container.add(
     widgets.table(
@@ -83,9 +83,9 @@ container.add(
     )
 )
 
-container.add(Item("br"))
-container.add(Item("br"))
-container.add(Item("br"))
+container.add(Node("br"))
+container.add(Node("br"))
+container.add(Node("br"))
 
 page.render(container, "NAME")
 page.compile()

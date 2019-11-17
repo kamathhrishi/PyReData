@@ -11,7 +11,7 @@ Complete PIMA Diabetes Example showing an
 * Generalized Seaborn and Matplotlib support
 * Write Unit tests
 * Handle type errors
-* Rename Item to Node and allow to visualize complete tree for debugging
+* Visualize complete tree for debugging
 * Documentation
 
 <h1>Installation</h1>

@@ -1,4 +1,4 @@
-from PyReData.ops import Item
+from PyReData.ops import Node
 from PyReData.stack import Stack
 from PyReData.widgets import Widgets
 from PyReData.page import Page
@@ -17,6 +17,6 @@ class PyReData:
     def __init__(self):
 
         self.page = Page
-        self.ops = Item
+        self.ops = Node
         self.widgets = Widgets
         self.images = 0

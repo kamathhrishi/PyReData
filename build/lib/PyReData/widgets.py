@@ -1,4 +1,4 @@
-from PyReData.ops import Item
+from PyReData.ops import Node
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
@@ -28,7 +28,7 @@ class Widgets:
         centerize=False,
     ):
 
-        Table = Item(
+        Table = Node(
             "table", attributes=attributes, id=id, Class=None, centerize=centerize
         )
 
@@ -42,22 +42,22 @@ class Widgets:
 
             columns.append(headers)
 
-        thead = Item("thead")
-        header = Item("tr", attributes=row_attributes)
+        thead = Node("thead")
+        header = Node("tr", attributes=row_attributes)
 
         for head in columns:
 
-            header.add(Item("th", attributes=header_attributes, content=str(head)))
+            header.add(Node("th", attributes=header_attributes, content=str(head)))
 
         thead.add(header)
         Table.add(thead)
 
         for index in data.index:
-            row = Item("tr", attributes=row_attributes, Class=Class)
+            row = Node("tr", attributes=row_attributes, Class=Class)
             for column in list(data):
 
                 row.add(
-                    Item(
+                    Node(
                         "td",
                         attributes=data_attributes,
                         content=str(data[column][index]),
@@ -89,13 +89,13 @@ class Widgets:
             attributes = []
 
         attributes.append(["src", path])
-        image = Item("img", attributes=attributes, id=id, Class=Class)
+        image = Node("img", attributes=attributes, id=id, Class=Class)
 
         return image
 
     def container(self, attributes=None, id=None, Class=None, header=None):
 
-        container = Item("div", attributes=attributes, id=id, Class=Class)
+        container = Node("div", attributes=attributes, id=id, Class=Class)
 
         return container
 
@@ -164,7 +164,7 @@ class Widgets:
 
     def row(self, cols=1, attributes=None, id=None, Class="row", header=None):
 
-        container = Item("div", attributes=attributes, id=id, Class=["row"])
+        container = Node("div", attributes=attributes, id=id, Class=["row"])
 
         for i in range(0, cols):
 
@@ -177,18 +177,18 @@ class Widgets:
         plots = []
 
         for key in data.keys():
-            
-            if(key!='index'):
 
-               ax = sns.distplot(data[key],kde=False, rug=True)
-               fig = ax.get_figure()
-               plots.append(self.plot(instance,fig))
+            if key != "index":
+
+                ax = sns.distplot(data[key], kde=False, rug=True)
+                fig = ax.get_figure()
+                plots.append(self.plot(instance, fig))
 
         return self.image_gallery(instance, plots)
 
     def column(self, attributes=None, id=None, Class="col", header=None):
 
-        container = Item("div", attributes=attributes, id=id, Class=["col"])
+        container = Node("div", attributes=attributes, id=id, Class=["col"])
 
         return container
 
