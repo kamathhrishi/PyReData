@@ -17,6 +17,8 @@ High
 * Visualize complete tree for debugging
 * Make Node iterable
 * Handle type errors
+* Jupyter Notebook PIMA
+* Render output dynamically
 
 Low
 * Type Annotations
