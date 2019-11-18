@@ -89,13 +89,13 @@ class Widgets:
             attributes = []
 
         attributes.append(["src", path])
-        image = Node("img", attributes=attributes, id=id, Class=Class)
+        image = Node("img",name=name,attributes=attributes, id=id, Class=Class)
 
         return image
 
-    def container(self, attributes=None, id=None, Class=None, header=None):
+    def container(self,name="",attributes=None, id=None, Class=None, header=None):
 
-        container = Node("div", attributes=attributes, id=id, Class=Class)
+        container = Node("div",name=name,attributes=attributes, id=id, Class=Class)
 
         return container
 
@@ -172,7 +172,7 @@ class Widgets:
 
         return container
 
-    def attribute_plot(self, instance, data):
+    def attribute_plot(self,instance, data):
 
         plots = []
 

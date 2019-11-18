@@ -20,3 +20,17 @@ class Node:
     def add(self, item):
 
         self.child.append(item)
+
+    def __str__(self):
+
+        string = ""
+
+        string += "NAME: " + self.name
+
+        for child in self.attributes:
+
+            string += "->"
+            string += "\n"
+            string += self.name
+
+        return string

@@ -5,13 +5,21 @@
 
 Complete PIMA Diabetes Example showing an
 
+Priority
+
+High
 * Improved API for tables (various bootstrap classes)
 * Easy API to go from Dataframes to tables
 * Templating
 * Generalized Seaborn and Matplotlib support
 * Write Unit tests
-* Handle type errors
+* Automatically name every Node
 * Visualize complete tree for debugging
+* Make Node iterable
+* Handle type errors
+
+Low
+* Type Annotations
 * Documentation
 
 <h1>Installation</h1>

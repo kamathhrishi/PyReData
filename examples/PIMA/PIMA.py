@@ -49,7 +49,11 @@ Data = Data.reset_index()
 pd = Data.head(n=5)
 
 container = widgets.container(
-    attributes=["style", "border:1px solid black;margin-left:100px;margin-right:100px;"]
+    name="container",
+    attributes=[
+        "style",
+        "border:1px solid black;margin-left:100px;margin-right:100px;",
+    ],
 )
 
 container.add(jumbotron)
@@ -87,5 +91,9 @@ container.add(Node("br"))
 container.add(Node("br"))
 container.add(Node("br"))
 
+print(container)
+
 page.render(container, "NAME")
+page.print_stack()
+
 page.compile()
