@@ -5,13 +5,24 @@
 
 Complete PIMA Diabetes Example showing an
 
+-Tabsets
+-Modal
+
+
+
 Priority
 
 High
+* Handle Stylesheets
+* Pass PyReData instance for default name generation
+* Name all components
+* Style is written to stylesheets
+
+Medium
 * Improved API for tables (various bootstrap classes)
 * Easy API to go from Dataframes to tables
 * Templating
-* Generalized Seaborn and Matplotlib support
+* Generalized Seaborn Matplotlib and pandas plot support
 * Write Unit tests
 * Automatically name every Node
 * Visualize complete tree for debugging

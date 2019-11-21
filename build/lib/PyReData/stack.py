@@ -14,6 +14,7 @@ class Stack:
     def __init__(self, type, init=[], name=""):
 
         self.stack = []
+        self.css = {}
         self.code = ""
         self.name = name
         self.type = type
@@ -24,13 +25,21 @@ class Stack:
         self.code += line
         self.write_stack()
 
+    def writecss(self, component):
+
+        pass
+
     def write(self, component):
 
         line = ""
         line += "\n"
 
         if component.centerize:
-
+            
+            
+            print("  \n ")
+            print("CENTERIZED")
+            print(" \n ")
             line += "<center>"
 
         line += "<" + component.obj

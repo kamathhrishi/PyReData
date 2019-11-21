@@ -68,42 +68,57 @@ class Widgets:
 
         return Table
 
-    def plot(self, instance, plot):
+    def css_block(self):
+
+        pass
+
+    def plot(self, instance, plot, centerize=False):
+        
+        print("PLOT")
+        print(centerize)
 
         if not os.path.exists("plots"):
             os.makedirs("plots")
 
         path = "plots/" + str(instance.images) + ".png"
         plot.savefig(path)
-        plot.show()
         instance.images += 1
 
-        image = self.image(path)
+        image = self.image(path, centerize=centerize)
 
         return image
 
-    def image(self, path, name="", attributes=None, id=None, Class=None):
+    def image(
+        self, path, name="", attributes=None, id=None, Class=None, centerize=False
+    ):
 
         if attributes is None:
 
             attributes = []
 
         attributes.append(["src", path])
-        image = Node("img",name=name,attributes=attributes, id=id, Class=Class)
+        image = Node(
+            "img",
+            name=name,
+            attributes=attributes,
+            id=id,
+            Class=Class,
+            centerize=centerize,
+        )
 
         return image
 
-    def container(self,name="",attributes=None, id=None, Class=None, header=None):
+    def container(self, name="", attributes=None, id=None, Class=None, header=None,centerize=False):
 
-        container = Node("div",name=name,attributes=attributes, id=id, Class=Class)
+        container = Node("div", name=name, attributes=attributes, id=id, Class=Class,centerize=centerize)
 
         return container
 
-    def image_gallery(self, instance, img, nrows=3, ncols=3, attributes=[]):
+    def image_gallery(self, instance, img, nrows=3, ncols=3, attributes=[],centerize=False):
 
         widgets = instance.widgets()
         container_fluid = widgets.container(
-            Class=["container-fluid"], attributes=attributes
+            Class=["container-fluid"], attributes=attributes,centerize=centerize
         )
 
         for n_row in range(0, nrows):
@@ -172,7 +187,10 @@ class Widgets:
 
         return container
 
-    def attribute_plot(self,instance, data):
+    def attribute_plot(self, instance, data,centerize=False):
+        
+        print("ATTRIBUTE PLOT")
+        print(centerize)
 
         plots = []
 
@@ -184,7 +202,7 @@ class Widgets:
                 fig = ax.get_figure()
                 plots.append(self.plot(instance, fig))
 
-        return self.image_gallery(instance, plots)
+        return self.image_gallery(instance, plots,centerize=centerize)
 
     def column(self, attributes=None, id=None, Class="col", header=None):
 

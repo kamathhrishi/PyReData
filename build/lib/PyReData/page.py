@@ -36,11 +36,11 @@ class Page:
         self.html.add(self.body)
         self.head.add(title)
         self.init_head()
-        
+
     def print_stack(self):
-        
+
         for node in self.stack:
-            
+
             print(node)
 
     def load_template(self):

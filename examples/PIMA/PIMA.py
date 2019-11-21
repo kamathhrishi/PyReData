@@ -58,10 +58,9 @@ container = widgets.container(
 
 container.add(jumbotron)
 
-ax = sns.distplot(Data["age"])
-fig = ax.get_figure()
+ax = sns.pairplot(Data, aspect=0.8)
 
-container.add(widgets.plot(lol, fig))
+container.add(widgets.plot(lol, ax, centerize=True))
 
 fig = plt.figure()
 plt.plot([1, 4, 3, 3, 5], [1, 3, 4, 5, 4])
@@ -72,7 +71,7 @@ container.add(widgets.plot(lol, fig))
 
 container_fluid = widgets.container(Class=["container-fluid"])
 
-container.add(widgets.attribute_plot(lol, Data))
+container.add(widgets.attribute_plot(lol, Data, centerize=True))
 
 container.add(Node("br"))
 
@@ -94,6 +93,5 @@ container.add(Node("br"))
 print(container)
 
 page.render(container, "NAME")
-page.print_stack()
 
 page.compile()
