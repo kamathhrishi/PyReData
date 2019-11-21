@@ -5,9 +5,8 @@
 
 Complete PIMA Diabetes Example showing an
 
--Tabsets
--Modal
-
+* Tabsets
+* Modal
 
 
 Priority
