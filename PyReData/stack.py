@@ -14,7 +14,6 @@ class Stack:
     def __init__(self, type, init=[], name=""):
 
         self.stack = []
-        self.css = {}
         self.code = ""
         self.name = name
         self.type = type
@@ -24,10 +23,6 @@ class Stack:
         line = self.write(component)
         self.code += line
         self.write_stack()
-
-    def writecss(self, component):
-
-        pass
 
     def write(self, component):
 

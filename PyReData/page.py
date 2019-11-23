@@ -49,12 +49,6 @@ class Page:
 
         pass
 
-    def body(self):
-
-        """Initializes body of given webpage"""
-
-        body_stack.append()
-
     def init_head(self):
         """Initializes head of given webpage"""
 

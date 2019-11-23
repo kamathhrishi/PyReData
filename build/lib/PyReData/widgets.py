@@ -73,7 +73,7 @@ class Widgets:
         pass
 
     def plot(self, instance, plot, centerize=False):
-        
+
         print("PLOT")
         print(centerize)
 
@@ -108,17 +108,34 @@ class Widgets:
 
         return image
 
-    def container(self, name="", attributes=None, id=None, Class=None, header=None,centerize=False):
+    def container(
+        self,
+        name="",
+        attributes=None,
+        id=None,
+        Class=None,
+        header=None,
+        centerize=False,
+    ):
 
-        container = Node("div", name=name, attributes=attributes, id=id, Class=Class,centerize=centerize)
+        container = Node(
+            "div",
+            name=name,
+            attributes=attributes,
+            id=id,
+            Class=Class,
+            centerize=centerize,
+        )
 
         return container
 
-    def image_gallery(self, instance, img, nrows=3, ncols=3, attributes=[],centerize=False):
+    def image_gallery(
+        self, instance, img, nrows=3, ncols=3, attributes=[], centerize=False
+    ):
 
         widgets = instance.widgets()
         container_fluid = widgets.container(
-            Class=["container-fluid"], attributes=attributes,centerize=centerize
+            Class=["container-fluid"], attributes=attributes, centerize=centerize
         )
 
         for n_row in range(0, nrows):
@@ -187,8 +204,8 @@ class Widgets:
 
         return container
 
-    def attribute_plot(self, instance, data,centerize=False):
-        
+    def attribute_plot(self, instance, data, centerize=False):
+
         print("ATTRIBUTE PLOT")
         print(centerize)
 
@@ -202,7 +219,7 @@ class Widgets:
                 fig = ax.get_figure()
                 plots.append(self.plot(instance, fig))
 
-        return self.image_gallery(instance, plots,centerize=centerize)
+        return self.image_gallery(instance, plots, centerize=centerize)
 
     def column(self, attributes=None, id=None, Class="col", header=None):
 

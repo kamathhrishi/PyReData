@@ -34,3 +34,16 @@ class Node:
             string += self.name
 
         return string
+
+
+class Element:
+
+    """Elements are used used to represent CSS tags"""
+
+    def __init__(self, name, type, attributes=[], Class=False, Id=True, param=""):
+
+        pass
+
+    def __str__(self):
+
+        pass

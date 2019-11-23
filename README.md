@@ -8,7 +8,6 @@ Complete PIMA Diabetes Example showing an
 * Tabsets
 * Modal
 
-
 Priority
 
 High
