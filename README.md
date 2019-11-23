@@ -50,3 +50,7 @@ Change directory
 Run Installation script
 
 ``` python setup.py install```
+
+Bonus: Run testcases
+
+``` sh test.sh ```
