@@ -36,6 +36,7 @@ class Page:
         self.html.add(self.body)
         self.head.add(title)
         self.init_head()
+        self.content = {}
 
     def print_stack(self):
 

@@ -7,6 +7,8 @@ Complete PIMA Diabetes Example showing an
 
 * Tabsets
 * Modal
+* Templating
+* Instant plots
 
 Priority
 

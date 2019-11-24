@@ -1,7 +1,7 @@
 from PyReData.stylesheets import StyleSheet
 
 
-def test_style():
+def test_styleName():
 
     sheet1 = StyleSheet()
     sheet1.write([["color", "yellow"], ["font-weight", "bold"]], name="h1")

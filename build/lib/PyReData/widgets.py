@@ -74,16 +74,20 @@ class Widgets:
 
     def plot(self, instance, plot, centerize=False):
 
-        print("PLOT")
-        print(centerize)
-
         if not os.path.exists("plots"):
             os.makedirs("plots")
+            
+        if 'plot' in instance.content:
+                           
+            instance.content['plot'] += 1
+            
+        else:
+            
+            instance.content['plot']=1
 
-        path = "plots/" + str(instance.images) + ".png"
+        path = "plots/" + str(instance.content['plot']) + ".png"
         plot.savefig(path)
-        instance.images += 1
-
+        
         image = self.image(path, centerize=centerize)
 
         return image
@@ -133,14 +137,13 @@ class Widgets:
         self, instance, img, nrows=3, ncols=3, attributes=[], centerize=False
     ):
 
-        widgets = instance.widgets()
-        container_fluid = widgets.container(
+        container_fluid = self.container(
             Class=["container-fluid"], attributes=attributes, centerize=centerize
         )
 
         for n_row in range(0, nrows):
 
-            row = widgets.row(cols=ncols)
+            row = self.row(cols=ncols)
             container_fluid.add(row)
 
         img_index = 0
@@ -162,14 +165,13 @@ class Widgets:
 
     def plot_gallery(self, instance, img, nrows=3, ncols=3, attributes=[]):
 
-        widgets = instance.widgets()
-        container_fluid = widgets.container(
+        container_fluid = self.container(
             Class=["container-fluid"], attributes=attributes
         )
 
         for n_row in range(0, nrows):
 
-            row = widgets.row(cols=ncols)
+            row = self.row(cols=ncols)
             container_fluid.add(row)
 
         plt_index = 0

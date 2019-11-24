@@ -60,18 +60,18 @@ container.add(jumbotron)
 
 ax = sns.pairplot(Data, aspect=0.8)
 
-container.add(widgets.plot(lol, ax, centerize=True))
+container.add(widgets.plot(page, ax, centerize=True))
 
 fig = plt.figure()
 plt.plot([1, 4, 3, 3, 5], [1, 3, 4, 5, 4])
 plt.show()
 plt.close()
 
-container.add(widgets.plot(lol, fig))
+container.add(widgets.plot(page, fig))
 
 container_fluid = widgets.container(Class=["container-fluid"])
 
-container.add(widgets.attribute_plot(lol, Data, centerize=True))
+container.add(widgets.attribute_plot(page, Data, centerize=True))
 
 container.add(Node("br"))
 
