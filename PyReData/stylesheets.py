@@ -1,4 +1,7 @@
-class StyleSheet:
+from PyReData.exceptions import IdentifierError
+
+
+class Stylesheet:
     def __init__(self):
 
         self.css = {}
@@ -14,9 +17,13 @@ class StyleSheet:
 
             self.css["." + Class] = attribute
 
-        else:
+        elif name:
 
             self.css[name] = attribute
+
+        else:
+
+            raise IdentifierError("No identifier was given")
 
     def generate(self):
 

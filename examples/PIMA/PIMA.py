@@ -2,6 +2,7 @@ import PyReData
 import pandas as pd
 from PyReData.main import PyReData
 from PyReData.ops import Node
+from PyReData.stylesheets import Stylesheet
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -11,22 +12,15 @@ File = "pima-indians-diabetes.csv"
 
 Data = pd.read_csv(File)
 
-"""# 1. Number of times pregnant
-# 2. Plasma glucose concentration a 2 hours in an oral glucose tolerance test
-# 3. Diastolic blood pressure (mm Hg)
-# 4. Triceps skin fold thickness (mm)
-# 5. 2-Hour serum insulin (mu U/ml)
-# 6. Body mass index (weight in kg/(height in m)^2)
-# 7. Diabetes pedigree function
-# 8. Age (years)
-# 9. Class variable (0 or 1)"""
-
 Positives = Data[Data["Outcome"] == 1]
 Negatives = Data[Data["Outcome"] == 0]
 
 widgets = lol.widgets()
 
 lol = PyReData()
+
+style = Stylesheet()
+
 
 page = lol.page(
     "PIMA",
@@ -41,7 +35,10 @@ page = lol.page(
 )
 
 jumbotron = widgets.container(
-    Class=["jumbotron", "bg-dark"], id=["YAAS"], attributes=["style", "color:white"]
+    page,
+    Class=["jumbotron", "bg-dark"],
+    id=["YAAS"],
+    attributes=["style", "color:white"],
 )
 jumbotron.add(Node("p", content="HELLO WORLD"))
 
@@ -49,6 +46,7 @@ Data = Data.reset_index()
 pd = Data.head(n=5)
 
 container = widgets.container(
+    page,
     name="container",
     attributes=[
         "style",
@@ -57,6 +55,12 @@ container = widgets.container(
 )
 
 container.add(jumbotron)
+
+container.add(
+    widgets.image(
+        page, "image.jpeg", stylesheet=style, style=["border: 1px solid black"]
+    )
+)
 
 ax = sns.pairplot(Data, aspect=0.8)
 
@@ -69,7 +73,7 @@ plt.close()
 
 container.add(widgets.plot(page, fig))
 
-container_fluid = widgets.container(Class=["container-fluid"])
+container_fluid = widgets.container(page, Class=["container-fluid"])
 
 container.add(widgets.attribute_plot(page, Data, centerize=True))
 
@@ -77,6 +81,7 @@ container.add(Node("br"))
 
 container.add(
     widgets.table(
+        page,
         pd,
         attributes=["style", "border:1px solid black;width:65%"],
         data_attributes=["style", "border:1px solid black;border-collapse: collapse;"],
@@ -90,8 +95,14 @@ container.add(Node("br"))
 container.add(Node("br"))
 container.add(Node("br"))
 
+print("STYLESHEET")
+
+print(style.css)
+print(style.generate())
+
 print(container)
 
 page.render(container, "NAME")
+
 
 page.compile()

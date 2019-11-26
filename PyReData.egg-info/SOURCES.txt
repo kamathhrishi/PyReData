@@ -1,6 +1,7 @@
 README.md
 setup.py
 PyReData/__init__.py
+PyReData/exceptions.py
 PyReData/main.py
 PyReData/ops.py
 PyReData/page.py

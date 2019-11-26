@@ -26,6 +26,8 @@ class Widgets:
         data_attributes=None,
         data_id=None,
         data_class=None,
+        style=None,
+        stylesheet=None,
         centerize=False,
     ):
 
@@ -81,7 +83,7 @@ class Widgets:
 
         pass
 
-    def plot(self, instance, plot, centerize=False):
+    def plot(self, instance, plot, centerize=False, stylesheet=None):
 
         if not os.path.exists("plots"):
             os.makedirs("plots")
@@ -97,7 +99,7 @@ class Widgets:
         path = "plots/" + str(instance.content["plot"]) + ".png"
         plot.savefig(path)
 
-        image = self.image(path, centerize=centerize)
+        image = self.image(instance, path, centerize=centerize)
 
         return image
 
@@ -109,7 +111,9 @@ class Widgets:
         attributes=None,
         id=None,
         Class=None,
+        style=None,
         centerize=False,
+        stylesheet=None,
     ):
 
         if "img" in instance.content:
@@ -123,6 +127,26 @@ class Widgets:
         if attributes is None:
 
             attributes = []
+
+        print("STYLE")
+
+        if stylesheet:
+
+            print(stylesheet)
+
+            print(style)
+
+            for st in style:
+
+                print(st)
+
+                if id:
+
+                    stylesheet.write(st, id)
+
+                elif Class:
+
+                    stylesheet.write(st, Class)
 
         attributes.append(["src", path])
         image = Node(
@@ -145,6 +169,8 @@ class Widgets:
         Class=None,
         header=None,
         centerize=False,
+        style=None,
+        stylesheet=None,
     ):
 
         if "div" in instance.content:
@@ -167,11 +193,22 @@ class Widgets:
         return container
 
     def image_gallery(
-        self, instance, img, nrows=3, ncols=3, attributes=[], centerize=False
+        self,
+        instance,
+        img,
+        nrows=3,
+        ncols=3,
+        attributes=[],
+        centerize=False,
+        style=None,
+        stylesheet=None,
     ):
 
         container_fluid = self.container(
-            Class=["container-fluid"], attributes=attributes, centerize=centerize
+            instance,
+            Class=["container-fluid"],
+            attributes=attributes,
+            centerize=centerize,
         )
 
         for n_row in range(0, nrows):
@@ -196,7 +233,16 @@ class Widgets:
 
         return container_fluid
 
-    def plot_gallery(self, instance, img, nrows=3, ncols=3, attributes=[]):
+    def plot_gallery(
+        self,
+        instance,
+        img,
+        nrows=3,
+        ncols=3,
+        attributes=[],
+        style=None,
+        stylesheet=None,
+    ):
 
         container_fluid = self.container(
             Class=["container-fluid"], attributes=attributes
@@ -229,7 +275,16 @@ class Widgets:
 
         return container_fluid
 
-    def row(self, cols=1, attributes=None, id=None, Class="row", header=None):
+    def row(
+        self,
+        cols=1,
+        attributes=None,
+        id=None,
+        Class="row",
+        header=None,
+        style=None,
+        stylesheet=None,
+    ):
 
         container = Node("div", attributes=attributes, id=id, Class=["row"])
 
@@ -239,10 +294,9 @@ class Widgets:
 
         return container
 
-    def attribute_plot(self, instance, data, centerize=False):
-
-        print("ATTRIBUTE PLOT")
-        print(centerize)
+    def attribute_plot(
+        self, instance, data, centerize=False, style=None, stylesheet=None
+    ):
 
         plots = []
 
@@ -256,12 +310,20 @@ class Widgets:
 
         return self.image_gallery(instance, plots, centerize=centerize)
 
-    def column(self, attributes=None, id=None, Class="col", header=None):
+    def column(
+        self,
+        attributes=None,
+        id=None,
+        Class="col",
+        header=None,
+        style=None,
+        stylesheet=None,
+    ):
 
         container = Node("div", attributes=attributes, id=id, Class=["col"])
 
         return container
 
-    def navbar(self, attributes=None, id=None, Class=None):
+    def navbar(self, attributes=None, id=None, Class=None, stylesheet=None):
 
         pass
