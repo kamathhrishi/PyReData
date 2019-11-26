@@ -19,13 +19,14 @@ widgets = lol.widgets()
 
 lol = PyReData()
 
-style = Stylesheet()
+styles = Stylesheet(name="Styles")
 
 
 page = lol.page(
     "PIMA",
     stylesheets=[
-        "http://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        "http://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css",
+        "Styles.css",
     ],
     scripts=[
         "http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
@@ -58,7 +59,11 @@ container.add(jumbotron)
 
 container.add(
     widgets.image(
-        page, "image.jpeg", stylesheet=style, style=["border: 1px solid black"]
+        page,
+        "image.jpeg",
+        stylesheet=styles,
+        style=[["border", "10px solid black"], ["border-radius", "5px"]],
+        id=["LOL"],
     )
 )
 
@@ -97,12 +102,12 @@ container.add(Node("br"))
 
 print("STYLESHEET")
 
-print(style.css)
-print(style.generate())
+print(styles.css)
+print(styles.generate())
 
-print(container)
+styles.compile()
+
 
 page.render(container, "NAME")
-
 
 page.compile()

@@ -114,6 +114,8 @@ class Widgets:
         style=None,
         centerize=False,
         stylesheet=None,
+        style_id=None,
+        style_class=None,
     ):
 
         if "img" in instance.content:
@@ -127,26 +129,16 @@ class Widgets:
         if attributes is None:
 
             attributes = []
-            
-        print("STYLE")
 
         if stylesheet:
-            
-            print(stylesheet)
-            
-            print(style)
 
-            for st in style:
-                
-                print(st)
+            if id is not None:
 
-                if id:
+                stylesheet.write(style, ID=id[0])
 
-                    stylesheet.write(st, id)
+            elif Class is not None:
 
-                elif Class:
-
-                    stylesheet.write(st, Class)
+                stylesheet.write(style, Class=Class[0])
 
         attributes.append(["src", path])
         image = Node(

@@ -41,13 +41,15 @@ High
 * Name all components
 * Style is written to stylesheets
 * Write Unit tests
+* Ensure ease in managing multiple names/classes
 
 Medium
+
+* Cache pages and results for faster rendering
 * Improved API for tables (various bootstrap classes)
 * Easy API to go from Dataframes to tables
 * Templating
 * Generalized Seaborn Matplotlib and pandas plot support
-* Automatically name every Node
 * Visualize complete tree for debugging
 * Make Node iterable
 * Handle type errors

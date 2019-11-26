@@ -31,9 +31,6 @@ class Stack:
 
         if component.centerize:
 
-            print("  \n ")
-            print("CENTERIZED")
-            print(" \n ")
             line += "<center>"
 
         line += "<" + component.obj
