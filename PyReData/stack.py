@@ -45,7 +45,6 @@ class Stack:
             for id_no in component.id:
 
                 line += id_no
-                line += " "
 
             line += '"'
 
@@ -60,7 +59,6 @@ class Stack:
             for id_no in component.Class:
 
                 line += id_no
-                line += " "
 
             line += '"'
 

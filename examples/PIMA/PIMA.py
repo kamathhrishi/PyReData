@@ -63,7 +63,7 @@ container.add(
         "image.jpeg",
         stylesheet=styles,
         style=[["border", "10px solid black"], ["border-radius", "5px"]],
-        id=["LOL"],
+        id=["LOL"],centerize=True
     )
 )
 
@@ -109,5 +109,6 @@ styles.compile()
 
 
 page.render(container, "NAME")
+
 
 page.compile()

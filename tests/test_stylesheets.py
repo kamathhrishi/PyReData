@@ -31,3 +31,17 @@ def test_noidentifier():
 
         sheet1 = StyleSheet()
         sheet1.write([["color", "yellow"], ["font-weight", "bold"]])
+
+
+def test_image():
+
+    styles = Stylesheet(name="Styles")
+    container.add(
+        widgets.image(
+            page,
+            "image.jpeg",
+            stylesheet=styles,
+            style=[["border", "10px solid black"], ["border-radius", "5px"]],
+            id=["LOL"],
+        )
+    )
