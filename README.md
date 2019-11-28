@@ -37,11 +37,17 @@ Complete PIMA Diabetes Example showing an
 Priority
 
 High
-* Handle Stylesheets
+* Handle Stylesheets (Read/Write)
 * Name all components
+* Allow default stylesheets
 * Style is written to stylesheets
 * Write Unit tests
 * Ensure ease in managing multiple names/classes
+
+Kinda cool
+
+A bash program to automatically run tests , black formatter , code coverage, documentation coverage and push to Github
+Maybe even automatically generate unit tests based on examples?
 
 Medium
 

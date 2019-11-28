@@ -79,11 +79,7 @@ class Widgets:
 
         return Table
 
-    def css_block(self):
-
-        pass
-
-    def plot(self, instance, plot, centerize=False, stylesheet=None):
+    def plot(self, instance, plot, centerize=False, stylesheet=None, style=None):
 
         if not os.path.exists("plots"):
             os.makedirs("plots")
@@ -99,7 +95,15 @@ class Widgets:
         path = "plots/" + str(instance.content["plot"]) + ".png"
         plot.savefig(path)
 
-        image = self.image(instance, path, centerize=centerize)
+        if not stylesheet:
+
+            if instance.def_stylesheet:
+
+                stylesheet = instance.def_stylesheet
+
+        image = self.image(
+            instance, path, centerize=centerize, style=style, stylesheet=stylesheet
+        )
 
         return image
 
@@ -130,17 +134,14 @@ class Widgets:
 
             attributes = []
 
-        if stylesheet:
-
-            if id is not None:
-
-                stylesheet.write(style, ID=id[0])
-
-            elif Class is not None:
-
-                stylesheet.write(style, Class=Class[0])
-
         attributes.append(["src", path])
+
+        if not stylesheet:
+
+            if instance.def_stylesheet:
+
+                stylesheet = instance.def_stylesheet
+
         image = Node(
             "img",
             name=name,
@@ -148,6 +149,8 @@ class Widgets:
             id=id,
             Class=Class,
             centerize=centerize,
+            stylesheet=stylesheet,
+            style=style,
         )
 
         return image
@@ -165,6 +168,12 @@ class Widgets:
         stylesheet=None,
     ):
 
+        if not stylesheet:
+
+            if instance.def_stylesheet:
+
+                stylesheet = instance.def_stylesheet
+
         if "div" in instance.content:
 
             instance.content["img"] += 1
@@ -180,6 +189,8 @@ class Widgets:
             id=id,
             Class=Class,
             centerize=centerize,
+            stylesheet=stylesheet,
+            style=style,
         )
 
         return container

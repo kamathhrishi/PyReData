@@ -1,8 +1,8 @@
 import PyReData.ops
 
 
-class Stack:
-    """Class used to maintain the stack which stores operations and data.
+class Tree:
+    """Class used to maintain the Tree which stores operations and data.
       
        Args:
             
@@ -11,12 +11,14 @@ class Stack:
     
     """
 
-    def __init__(self, type, init=[], name=""):
+    def __init__(self, type, init=[], name="", stylesheet=None, style=None):
 
         self.stack = []
         self.code = ""
         self.name = name
         self.type = type
+        self.stylesheet = stylesheet
+        self.style = style
 
     def writestack(self, component):
 
@@ -25,6 +27,13 @@ class Stack:
         self.write_stack()
 
     def write(self, component):
+        """The method is called to write a particular component to the graph.
+           
+           Args:
+               
+               component[Node]: Node to be written to the graph
+        
+        """
 
         line = ""
         line += "\n"
@@ -42,9 +51,13 @@ class Stack:
             line += "id="
             line += '"'
 
-            for id_no in component.id:
+            for id_no in range(0, len(component.id)):
 
-                line += id_no
+                line += component.id[id_no]
+
+                if id_no != (len(component.id) - 1):
+
+                    line += " "
 
             line += '"'
 
@@ -56,9 +69,13 @@ class Stack:
             line += "class="
             line += '"'
 
-            for id_no in component.Class:
+            for id_no in range(0, len(component.Class)):
 
-                line += id_no
+                line += component.Class[id_no]
+
+                if id_no != (len(component.Class) - 1):
+
+                    line += " "
 
             line += '"'
 
@@ -108,7 +125,7 @@ class Stack:
 
     def write_stack(self):
 
-        print("Writing stack")
+        print("Writing tree")
         file = open(self.name + "." + self.type, "w")
         file.write(self.code)
         file.close()

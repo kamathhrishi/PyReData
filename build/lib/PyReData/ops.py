@@ -1,11 +1,19 @@
 class Node:
-
     """Node are a fundamental datatype of PyReData. A single HTML tag could be considered an node.
         Node could be charecterized by its HTML attributes , ID and class. It could further have 
         child node , say to images , text and divs inside a div"""
 
     def __init__(
-        self, obj, name="", id="", Class="", content="", attributes=[], centerize=False
+        self,
+        obj,
+        name="",
+        id="",
+        Class="",
+        content="",
+        attributes=[],
+        centerize=False,
+        stylesheet=None,
+        style=None,
     ):
 
         self.obj = obj
@@ -16,12 +24,30 @@ class Node:
         self.attributes = attributes
         self.content = content
         self.centerize = centerize
+        self.stylesheet = stylesheet
+        self.style = style
+
+        if self.stylesheet:
+
+            if self.id is not None:
+
+                self.stylesheet.write(self.style, ID=id)
+
+            elif self.Class is not None:
+
+                self.stylesheet.write(self.style, Class=self.Class)
 
     def add(self, item):
+        """Adds an item as child of current node.
+           
+        Args:
+            
+            item[datatypes?]: The item to be made as child"""
 
         self.child.append(item)
 
     def __str__(self):
+        """String representation of node indicating the current node and the children"""
 
         string = ""
 

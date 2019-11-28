@@ -5,8 +5,8 @@ PyReData/exceptions.py
 PyReData/main.py
 PyReData/ops.py
 PyReData/page.py
-PyReData/stack.py
 PyReData/stylesheets.py
+PyReData/tree.py
 PyReData/widgets.py
 PyReData.egg-info/PKG-INFO
 PyReData.egg-info/SOURCES.txt

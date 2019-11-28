@@ -1,5 +1,5 @@
 from PyReData.ops import Node
-from PyReData.stack import Stack
+from PyReData.tree import Tree
 from PyReData.widgets import Widgets
 
 
@@ -14,12 +14,21 @@ class Page:
             
     """
 
-    def __init__(self, name, template="", style="", stylesheets=[], scripts=[]):
+    def __init__(
+        self,
+        name,
+        template="",
+        style="",
+        stylesheets=[],
+        def_stylesheet=None,
+        scripts=[],
+    ):
 
         self.name = name
-        self.stack = Stack("html", name=self.name)
+        self.stack = Tree("html", name=self.name)
         self.template = []
         self.stylesheets = stylesheets
+        self.def_stylesheet = def_stylesheet
         self.scripts = scripts
 
         attributes = []

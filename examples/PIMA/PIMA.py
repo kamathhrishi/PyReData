@@ -63,7 +63,8 @@ container.add(
         "image.jpeg",
         stylesheet=styles,
         style=[["border", "10px solid black"], ["border-radius", "5px"]],
-        id=["LOL"],centerize=True
+        id=["LOL"],
+        centerize=True,
     )
 )
 

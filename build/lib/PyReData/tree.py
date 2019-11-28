@@ -1,8 +1,8 @@
 import PyReData.ops
 
 
-class Stack:
-    """Class used to maintain the stack which stores operations and data.
+class Tree:
+    """Class used to maintain the Tree which stores operations and data.
       
        Args:
             
@@ -27,6 +27,13 @@ class Stack:
         self.write_stack()
 
     def write(self, component):
+        """The method is called to write a particular component to the graph.
+           
+           Args:
+               
+               component[Node]: Node to be written to the graph
+        
+        """
 
         line = ""
         line += "\n"
