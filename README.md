@@ -37,9 +37,8 @@ Complete PIMA Diabetes Example showing an
 Priority
 
 High
-* Handle Stylesheets (Read/Write)
+* Handle Stylesheets 
 * Name all components
-* Allow default stylesheets
 * Style is written to stylesheets
 * Write Unit tests
 * Ensure ease in managing multiple names/classes
@@ -60,7 +59,6 @@ Medium
 * Make Node iterable
 * Handle type errors
 * Jupyter Notebook PIMA
-* Render output dynamically
 
 Low
 * Type Annotations
