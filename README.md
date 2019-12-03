@@ -36,8 +36,13 @@ Complete PIMA Diabetes Example showing an
 
 Priority
 
+Current
+
+* Add test for widgets
+* Add test for all widgets working with stylesheets
+
 High
-* Handle Stylesheets 
+* Handle Stylesheets
 * Name all components
 * Style is written to stylesheets
 * Write Unit tests

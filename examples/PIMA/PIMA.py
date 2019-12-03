@@ -101,6 +101,17 @@ container.add(Node("br"))
 container.add(Node("br"))
 container.add(Node("br"))
 
+cont_lol= widgets.container(
+    page,
+    name="container",
+    attributes=[
+        "style",
+        "border:1px solid black;margin-left:100px;margin-right:100px;",
+    ],
+    stylesheet=styles,
+    style=[["border", "10px solid black"], ["border-radius", "5px"]]
+)
+
 print("STYLESHEET")
 
 print(styles.css)

@@ -54,3 +54,27 @@ def test_defaultStylesheet():
     )
 
     assert styles.generate() == "#image{border:10px solid black;border-radius:5px;}\n"
+    
+def test_defaultStylesheet_cont():
+
+    styles = Stylesheet(name="Styles")
+
+    page = Page("Test", def_stylesheet=styles)
+
+    widgets = Widgets()
+    cont_lol= widgets.container(
+    page,
+    name="container",
+    attributes=[
+        "style",
+        "border:1px solid black;margin-left:100px;margin-right:100px;",
+    ],
+    style=[["border", "10px solid black"], ["border-radius", "5px"]]
+    )
+    
+    print(styles.generate())
+
+    assert styles.generate() == "#image{border:10px solid black;border-radius:5px;}\n"
+    
+test_defaultStylesheet_cont()
+

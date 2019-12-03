@@ -181,6 +181,12 @@ class Widgets:
         else:
 
             instance.content["img"] = 1
+            
+        if not stylesheet:
+
+            if instance.def_stylesheet:
+
+                stylesheet = instance.def_stylesheet
 
         container = Node(
             "div",
@@ -315,6 +321,7 @@ class Widgets:
 
     def column(
         self,
+        instance,
         attributes=None,
         id=None,
         Class="col",
@@ -324,6 +331,12 @@ class Widgets:
     ):
 
         container = Node("div", attributes=attributes, id=id, Class=["col"])
+        
+        if not stylesheet:
+
+            if instance.def_stylesheet:
+
+                stylesheet = instance.def_stylesheet
 
         return container
 

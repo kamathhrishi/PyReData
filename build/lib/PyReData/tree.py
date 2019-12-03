@@ -125,7 +125,7 @@ class Tree:
 
     def write_stack(self):
 
-        print("Writing stack")
+        print("Writing tree")
         file = open(self.name + "." + self.type, "w")
         file.write(self.code)
         file.close()
