@@ -38,15 +38,15 @@ Priority
 
 Current
 
-* Add test for widgets
-* Add test for all widgets working with stylesheets
+* More generalized naming standard
+* Allow single/multiple naming of classes/id easily
+* Add test for widgets with stylesheet support
 
 High
-* Handle Stylesheets
+
 * Name all components
-* Style is written to stylesheets
 * Write Unit tests
-* Ensure ease in managing multiple names/classes
+
 
 Kinda cool
 

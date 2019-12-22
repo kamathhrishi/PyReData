@@ -31,7 +31,7 @@ class Node:
 
             if self.id is not None:
 
-                self.stylesheet.write(self.style, ID=id)
+                self.stylesheet.write(self.style, ID=self.id)
 
             elif self.Class is not None:
 

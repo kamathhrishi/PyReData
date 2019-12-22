@@ -35,8 +35,10 @@ class Stylesheet:
             for id in ID:
 
                 str += id
-
-            self.css["#" + str] = attribute
+            
+            if(attribute):
+              
+                self.css["#" + str] = attribute
 
         elif Class:
 
@@ -44,12 +46,16 @@ class Stylesheet:
             for Class_n in Class:
 
                 str += Class_n
-
-            self.css["." + str] = attribute
+            
+            if(attribute):
+          
+                self.css["." + str] = attribute
 
         elif name:
+            
+            if(attribute):
 
-            self.css[name] = attribute
+                self.css[name] = attribute
 
         else:
 

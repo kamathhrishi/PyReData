@@ -18,12 +18,15 @@ class Widgets:
         id=None,
         Class=None,
         header_attributes=None,
+        header_style=None,
         header_id=None,
         header_class=None,
         row_attributes=None,
+        row_style=None,
         row_id=None,
         row_class=None,
         data_attributes=None,
+        data_style=None,
         data_id=None,
         data_class=None,
         style=None,
@@ -39,8 +42,20 @@ class Widgets:
 
             instance.content["table"] = 1
 
+        if not stylesheet:
+
+            if instance.def_stylesheet:
+
+                stylesheet = instance.def_stylesheet
+
         Table = Node(
-            "table", attributes=attributes, id=id, Class=None, centerize=centerize
+            "table",
+            attributes=attributes,
+            stylesheet=stylesheet,
+            style=style,
+            id=id,
+            Class=None,
+            centerize=centerize,
         )
 
         columns = []
@@ -54,17 +69,34 @@ class Widgets:
             columns.append(headers)
 
         thead = Node("thead")
-        header = Node("tr", attributes=row_attributes)
+        print(id)
+        header = Node("tr", attributes=row_attributes, id=id[0] + "-" + "row")
 
         for head in columns:
 
-            header.add(Node("th", attributes=header_attributes, content=str(head)))
+            header.add(
+                Node(
+                    "th",
+                    attributes=header_attributes,
+                    style=header_style,
+                    stylesheet=stylesheet,
+                    content=str(head),
+                    id=id[0] + "-" + "head",
+                )
+            )
 
         thead.add(header)
         Table.add(thead)
 
         for index in data.index:
-            row = Node("tr", attributes=row_attributes, Class=Class)
+            row = Node(
+                "tr",
+                attributes=row_attributes,
+                style=row_style,
+                stylesheet=stylesheet,
+                Class=Class,
+                id=[id[0] + "-" + "rows"],
+            )
             for column in list(data):
 
                 row.add(
@@ -72,6 +104,9 @@ class Widgets:
                         "td",
                         attributes=data_attributes,
                         content=str(data[column][index]),
+                        style=data_style,
+                        stylesheet=stylesheet,
+                        id=[id[0] + "-" + "data"],
                     )
                 )
 
@@ -79,7 +114,16 @@ class Widgets:
 
         return Table
 
-    def plot(self, instance, plot, centerize=False, stylesheet=None, style=None):
+    def plot(
+        self,
+        instance,
+        plot,
+        id=None,
+        Class=None,
+        centerize=False,
+        stylesheet=None,
+        style=None,
+    ):
 
         if not os.path.exists("plots"):
             os.makedirs("plots")
@@ -102,7 +146,13 @@ class Widgets:
                 stylesheet = instance.def_stylesheet
 
         image = self.image(
-            instance, path, centerize=centerize, style=style, stylesheet=stylesheet
+            instance,
+            path,
+            id=id,
+            Class=Class,
+            centerize=centerize,
+            style=style,
+            stylesheet=stylesheet,
         )
 
         return image
@@ -181,7 +231,7 @@ class Widgets:
         else:
 
             instance.content["img"] = 1
-            
+
         if not stylesheet:
 
             if instance.def_stylesheet:
@@ -208,21 +258,30 @@ class Widgets:
         nrows=3,
         ncols=3,
         attributes=[],
+        Class=None,
+        id=None,
         centerize=False,
         style=None,
         stylesheet=None,
     ):
 
+        class_name = ["container-fluid"]
+
+        for name in Class:
+
+            class_name.append(name)
+
         container_fluid = self.container(
             instance,
-            Class=["container-fluid"],
+            Class=class_name,
+            id=id,
             attributes=attributes,
             centerize=centerize,
         )
 
         for n_row in range(0, nrows):
 
-            row = self.row(cols=ncols)
+            row = self.row(instance, cols=ncols)
             container_fluid.add(row)
 
         img_index = 0
@@ -286,6 +345,7 @@ class Widgets:
 
     def row(
         self,
+        instance,
         cols=1,
         attributes=None,
         id=None,
@@ -299,12 +359,19 @@ class Widgets:
 
         for i in range(0, cols):
 
-            container.add(self.column())
+            container.add(self.column(instance))
 
         return container
 
     def attribute_plot(
-        self, instance, data, centerize=False, style=None, stylesheet=None
+        self,
+        instance,
+        data,
+        Class=None,
+        id=None,
+        centerize=False,
+        style=None,
+        stylesheet=None,
     ):
 
         plots = []
@@ -317,7 +384,15 @@ class Widgets:
                 fig = ax.get_figure()
                 plots.append(self.plot(instance, fig))
 
-        return self.image_gallery(instance, plots, centerize=centerize)
+        return self.image_gallery(
+            instance,
+            plots,
+            stylesheet=stylesheet,
+            Class=Class,
+            id=id,
+            style=style,
+            centerize=centerize,
+        )
 
     def column(
         self,
@@ -331,7 +406,7 @@ class Widgets:
     ):
 
         container = Node("div", attributes=attributes, id=id, Class=["col"])
-        
+
         if not stylesheet:
 
             if instance.def_stylesheet:

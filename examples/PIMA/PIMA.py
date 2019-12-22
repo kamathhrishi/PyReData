@@ -70,7 +70,18 @@ container.add(
 
 ax = sns.pairplot(Data, aspect=0.8)
 
-container.add(widgets.plot(page, ax, centerize=True))
+container.add(Node("br"))
+
+container.add(
+    widgets.plot(
+        page,
+        ax,
+        centerize=True,
+        stylesheet=styles,
+        id=["LAL"],
+        style=[["border", "10px solid black"], ["border-radius", "5px"]],
+    )
+)
 
 fig = plt.figure()
 plt.plot([1, 4, 3, 3, 5], [1, 3, 4, 5, 4])
@@ -81,7 +92,16 @@ container.add(widgets.plot(page, fig))
 
 container_fluid = widgets.container(page, Class=["container-fluid"])
 
-container.add(widgets.attribute_plot(page, Data, centerize=True))
+container.add(
+    widgets.attribute_plot(
+        page,
+        Data,
+        stylesheet=styles,
+        Class="ISTYle",
+        style=[["border", "10px solid black"], ["border-radius", "5px"]],
+        centerize=True,
+    )
+)
 
 container.add(Node("br"))
 
@@ -89,11 +109,12 @@ container.add(
     widgets.table(
         page,
         pd,
-        attributes=["style", "border:1px solid black;width:65%"],
-        data_attributes=["style", "border:1px solid black;border-collapse: collapse;"],
+        stylesheet=styles,
+        style=[["border", "1px solid black"], ["width", "65%"]],
+        data_style=[["border", "1px solid black"], ["border-collapse", "collapse"]],
         centerize=True,
         Class=["table table-bordered"],
-        id=["YAAS"],
+        id=["YAS"],
     )
 )
 
@@ -101,7 +122,7 @@ container.add(Node("br"))
 container.add(Node("br"))
 container.add(Node("br"))
 
-cont_lol= widgets.container(
+cont_lol = widgets.container(
     page,
     name="container",
     attributes=[
@@ -109,7 +130,7 @@ cont_lol= widgets.container(
         "border:1px solid black;margin-left:100px;margin-right:100px;",
     ],
     stylesheet=styles,
-    style=[["border", "10px solid black"], ["border-radius", "5px"]]
+    style=[["border", "10px solid black"], ["border-radius", "5px"]],
 )
 
 print("STYLESHEET")
