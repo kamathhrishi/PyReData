@@ -39,7 +39,6 @@ Priority
 Current
 
 * More generalized naming standard
-* Allow single/multiple naming of classes/id easily
 * Add test for widgets with stylesheet support
 
 High
