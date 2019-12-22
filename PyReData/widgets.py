@@ -1,6 +1,7 @@
 from PyReData.ops import Node
 import seaborn as sns
 import matplotlib.pyplot as plt
+from PyReData.util import validate_names
 import os
 
 
@@ -34,29 +35,9 @@ class Widgets:
         centerize=False,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
-
-        if type(row_id) == str:
-
-            row_id = [row_id]
-
-        if type(row_class) == str:
-
-            row_class = [row_class]
-
-        if type(data_id) == str:
-
-            data_id = [data_id]
-
-        if type(data_class) == str:
-
-            data_class = [data_class]
+        id,Class=validate_names(id,Class)
+        row_id,row_class=validate_names(row_id,row_class)
+        data_id,data_class=validate_names(data_id,data_class)
 
         if "table" in instance.content:
 
@@ -149,13 +130,7 @@ class Widgets:
         style=None,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
+        id,Class=validate_names(id,Class)
 
         if not os.path.exists("plots"):
             os.makedirs("plots")
@@ -204,13 +179,7 @@ class Widgets:
         style_class=None,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
+        id,Class=validate_names(id,Class)
 
         if "img" in instance.content:
 
@@ -258,13 +227,7 @@ class Widgets:
         stylesheet=None,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
+        id,Class=validate_names(id,Class)
 
         if not stylesheet:
 
@@ -313,13 +276,7 @@ class Widgets:
         stylesheet=None,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
+        id,Class=validate_names(id,Class)
 
         class_name = ["container-fluid"]
 
@@ -369,12 +326,14 @@ class Widgets:
         style=None,
         stylesheet=None,
     ):
-
+        
         class_name = ["container-fluid"]
 
         for name in Class:
 
             class_name.append(name)
+            
+        id,Class=validate_names(id,Class)
 
         container_fluid = self.container(Class=class_name, attributes=attributes)
 
@@ -417,13 +376,7 @@ class Widgets:
         stylesheet=None,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
+        id,Class=validate_names(id,Class)
 
         container = Node("div", attributes=attributes, id=id, Class=["row"])
 
@@ -444,13 +397,7 @@ class Widgets:
         stylesheet=None,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
+        id,Class=validate_names(id,Class)
 
         plots = []
 
@@ -483,13 +430,7 @@ class Widgets:
         stylesheet=None,
     ):
 
-        if type(id) == str:
-
-            id = [id]
-
-        if type(Class) == str:
-
-            Class = [Class]
+        id,Class=validate_names(id,Class)
 
         container = Node("div", attributes=attributes, id=id, Class=["col"])
 
