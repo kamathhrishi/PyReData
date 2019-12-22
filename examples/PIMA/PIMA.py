@@ -36,10 +36,7 @@ page = lol.page(
 )
 
 jumbotron = widgets.container(
-    page,
-    Class=["jumbotron", "bg-dark"],
-    id=["YAAS"],
-    attributes=["style", "color:white"],
+    page, Class=["jumbotron", "bg-dark"], id="YAAS", attributes=["style", "color:white"]
 )
 jumbotron.add(Node("p", content="HELLO WORLD"))
 
@@ -63,7 +60,7 @@ container.add(
         "image.jpeg",
         stylesheet=styles,
         style=[["border", "10px solid black"], ["border-radius", "5px"]],
-        id=["LOL"],
+        id="LOL",
         centerize=True,
     )
 )
@@ -78,7 +75,7 @@ container.add(
         ax,
         centerize=True,
         stylesheet=styles,
-        id=["LAL"],
+        id="LAL",
         style=[["border", "10px solid black"], ["border-radius", "5px"]],
     )
 )
@@ -114,7 +111,7 @@ container.add(
         data_style=[["border", "1px solid black"], ["border-collapse", "collapse"]],
         centerize=True,
         Class=["table table-bordered"],
-        id=["YAS"],
+        id="YAS",
     )
 )
 

@@ -7,6 +7,7 @@ PyReData/ops.py
 PyReData/page.py
 PyReData/stylesheets.py
 PyReData/tree.py
+PyReData/util.py
 PyReData/widgets.py
 PyReData.egg-info/PKG-INFO
 PyReData.egg-info/SOURCES.txt

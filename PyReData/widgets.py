@@ -34,6 +34,30 @@ class Widgets:
         centerize=False,
     ):
 
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
+
+        if type(row_id) == str:
+
+            row_id = [row_id]
+
+        if type(row_class) == str:
+
+            row_class = [row_class]
+
+        if type(data_id) == str:
+
+            data_id = [data_id]
+
+        if type(data_class) == str:
+
+            data_class = [data_class]
+
         if "table" in instance.content:
 
             instance.content["table"] += 1
@@ -125,6 +149,14 @@ class Widgets:
         style=None,
     ):
 
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
+
         if not os.path.exists("plots"):
             os.makedirs("plots")
 
@@ -172,6 +204,14 @@ class Widgets:
         style_class=None,
     ):
 
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
+
         if "img" in instance.content:
 
             instance.content["img"] += 1
@@ -217,6 +257,14 @@ class Widgets:
         style=None,
         stylesheet=None,
     ):
+
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
 
         if not stylesheet:
 
@@ -265,6 +313,14 @@ class Widgets:
         stylesheet=None,
     ):
 
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
+
         class_name = ["container-fluid"]
 
         for name in Class:
@@ -305,6 +361,8 @@ class Widgets:
         self,
         instance,
         img,
+        Class=None,
+        id=None,
         nrows=3,
         ncols=3,
         attributes=[],
@@ -312,9 +370,13 @@ class Widgets:
         stylesheet=None,
     ):
 
-        container_fluid = self.container(
-            Class=["container-fluid"], attributes=attributes
-        )
+        class_name = ["container-fluid"]
+
+        for name in Class:
+
+            class_name.append(name)
+
+        container_fluid = self.container(Class=class_name, attributes=attributes)
 
         for n_row in range(0, nrows):
 
@@ -355,6 +417,14 @@ class Widgets:
         stylesheet=None,
     ):
 
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
+
         container = Node("div", attributes=attributes, id=id, Class=["row"])
 
         for i in range(0, cols):
@@ -373,6 +443,14 @@ class Widgets:
         style=None,
         stylesheet=None,
     ):
+
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
 
         plots = []
 
@@ -404,6 +482,14 @@ class Widgets:
         style=None,
         stylesheet=None,
     ):
+
+        if type(id) == str:
+
+            id = [id]
+
+        if type(Class) == str:
+
+            Class = [Class]
 
         container = Node("div", attributes=attributes, id=id, Class=["col"])
 
