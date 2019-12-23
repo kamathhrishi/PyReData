@@ -39,12 +39,11 @@ Priority
 Current
 
 * More generalized naming standard
-* Add test for widgets with stylesheet support
 
 High
 
 * Name all components
-* Write Unit tests
+* Write Unit tests (widgets with stylesheet support)
 
 
 Kinda cool

@@ -1,11 +1,13 @@
 
-def validate_names(id,Class):
+from typing import List
+
+def validate_names(id:[List,str],Class:[List,str]):
     
-    if(id==str):
+    if(type(id)==str):
         
         id=[id]
     
-    if(Class==str):
+    if(type(Class)==str):
         
         Class=[Class]
         
